@@ -36,8 +36,7 @@ public class GameHelper {
 			incr = gridLength; // set vertical increment
 		}
 		
-		while ( !success & attempts++ < 200 ) 
-			{ // main search loop (32)
+		while ( !success & attempts++ < 200 ) { // main search loop (32)
 			location = (int) (Math.random() * gridSize); // get random starting point
 			//System.out.print(“ try “ + location);
 			int x = 0; // nth position in dotcom to place
@@ -57,21 +56,24 @@ public class GameHelper {
 						success = false; // failure
 					}
 				}
-			} // end while
-int x = 0; // turn location into alpha coords
-int row = 0;
-int column = 0;
-// System.out.println(“\n”);
-while (x < comSize) {
-grid[coords[x]] = 1; // mark master grid pts. as ‘used’
-row = (int) (coords[x] / gridLength); // get row value
-column = coords[x] % gridLength; // get numeric column value
-temp = String.valueOf(alphabet.charAt(column)); // convert to alpha
-alphaCells.add(temp.concat(Integer.toString(row)));
-x++;
-// System.out.print(“ coord “+x+” = “ + alphaCells.get(x-1));
-}
-// System.out.println(“\n”);
-return alphaCells;
-}
-}
+		} // end while
+		int x = 0; // turn location into alpha coords
+		int row = 0;
+		int column = 0;
+		// System.out.println(“\n”);
+		while (x < comSize) {
+			grid[coords[x]] = 1; // mark master grid pts. as ‘used’
+			row = (int) (coords[x] / gridLength); // get row value
+			column = coords[x] % gridLength; // get numeric column value
+			temp = String.valueOf(alphabet.charAt(column)); // convert to alpha
+			
+			alphaCells.add(temp.concat(Integer.toString(row)));
+			x++;
+			// System.out.print(“ coord “+x+” = “ + alphaCells.get(x-1));
+		}
+		
+		// System.out.println(“\n”);
+		
+		return alphaCells;
+	} //close ArrayList placeDotCom 
+} //close class
